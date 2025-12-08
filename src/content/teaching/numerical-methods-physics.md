@@ -11,7 +11,7 @@ materials:
 draft: false
 pinned: false
 tags: ["numerical methods", "physics", "python", "scientific computing", "undergraduate"]
-publishDate: "2024-02-15"
+publishDate: "2025-02-15"
 ---
 
 ## Course Overview
