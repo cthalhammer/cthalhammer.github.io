@@ -1,41 +1,216 @@
 ---
-import { type CollectionEntry, getCollection } from "astro:content";
-import PostPreview from "@/components/blog/PostPreview.astro";
-import Note from "@/components/note/Note.astro";
+import { getCollection } from "astro:content";
 import SocialList from "@/components/SocialList.astro";
-import { getAllPosts } from "@/data/post";
 import PageLayout from "@/layouts/Base.astro";
-import { collectionDateSort } from "@/utils/date";
 
-// Posts
-const MAX_POSTS = 10;
-const allPosts = await getAllPosts();
-const allPostsByDate = allPosts.sort(collectionDateSort) as CollectionEntry<"post">[];
-const latestPosts = allPostsByDate.slice(0, MAX_POSTS);
+// Pinned Research
+const MAX_PINNED_RESEARCH = 3;
+const allResearch = await getCollection("research");
+const pinnedResearch = allResearch
+	.filter((r) => r.data.pinned)
+	.sort((a, b) => b.data.year - a.data.year)
+	.slice(0, MAX_PINNED_RESEARCH);
 
-// Pinned Posts, set to a max of 3;
-const MAX_PINNED_POSTS = 3;
-const pinnedPosts = allPostsByDate.filter((p) => p.data.pinned).slice(0, MAX_PINNED_POSTS);
-
-// Notes
-const MAX_NOTES = 5;
-const allNotes = await getCollection("note");
-const latestNotes = allNotes
-	.sort(collectionDateSort)
-	.slice(0, MAX_NOTES) as CollectionEntry<"note">[];
+// Pinned Teaching
+const MAX_PINNED_TEACHING = 3;
+const allTeaching = await getCollection("teaching");
+const pinnedTeaching = allTeaching
+	.filter((t) => t.data.pinned)
+	.sort((a, b) => {
+		// Sort by year first, then by semester priority
+		if (a.data.year !== b.data.year) {
+			return b.data.year - a.data.year;
+		}
+		// Fall > Spring > Summer order
+		const semesterPriority: Record<string, number> = { Fall: 3, Spring: 2, Summer: 1 };
+		return (semesterPriority[b.data.semester] || 0) - (semesterPriority[a.data.semester] || 0);
+	})
+	.slice(0, MAX_PINNED_TEACHING);
 ---
 
 <PageLayout meta={{ title: "Home" }}>
 	<section>
-		<h1 class="title mb-12">Hello World!</h1>
+		<h1 class="title mb-12">Home</h1>
 		<p class="mb-4">
-			Hi, I’m a theme for Astro, a simple starter that you can use to create your website or blog.
-			If you want to know more about how you can customise me, add more posts, and make it your own,
-			click on the GitHub icon link below and it will take you to my repo.
+			I am a first year PhD student at <a
+				href="https://ethz.ch/de.html"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="text-gray-900 underline hover:text-gray-700 dark:text-gray-100 dark:hover:text-gray-300"
+				>ETH Zürich</a
+			> in the Seminar of Applied Math under the supervision of <a
+				href="https://people.math.ethz.ch/~hammari/"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="text-gray-900 underline hover:text-gray-700 dark:text-gray-100 dark:hover:text-gray-300"
+				>Prof. Habib Ammari</a
+			>. My research focuses on the behavior of waves in complex media. Currently, I also serve as
+			co-president of <a
+				href="https://vmm.ethz.ch"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="text-gray-900 underline hover:text-gray-700 dark:text-gray-100 dark:hover:text-gray-300"
+				>VMM</a
+			>, the association of the academic mid-level faculty at D-MATH.
 		</p>
 		<SocialList />
 	</section>
+	<section class="mt-16">
+		<h2 class="title text-accent mb-6 text-xl">CV</h2>
+		<div class="space-y-8">
+			<!-- Education -->
+			<div>
+				<h3 class="mb-4 text-lg font-semibold text-gray-900 dark:text-gray-100">Education</h3>
+				<div class="space-y-3">
+					<div class="border-l-2 border-blue-200 pl-4 dark:border-blue-800">
+						<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+							<div>
+								<h4 class="font-medium text-gray-900 dark:text-gray-100">
+									PhD in Applied Mathematics
+								</h4>
+								<p class="text-sm text-gray-600 dark:text-gray-400">
+									ETH Zürich, Seminar of Applied Math
+								</p>
+								<p class="text-sm text-gray-500 dark:text-gray-500">
+									Supervisor: Prof. Habib Ammari
+								</p>
+							</div>
+							<span class="text-sm text-gray-500 dark:text-gray-500">2025 - Present</span>
+						</div>
+					</div>
+					<!-- Add more education entries here -->
+					<div class="border-l-2 border-blue-200 pl-4 dark:border-blue-800">
+						<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+							<div>
+								<h4 class="font-medium text-gray-900 dark:text-gray-100">Visiting Student</h4>
+								<p class="text-sm text-gray-600 dark:text-gray-400">Imperial College London</p>
+								<p class="text-sm text-gray-500 dark:text-gray-500">
+									Supervisors: Prof. Richard Craster, Dr. Bryn Davies
+								</p>
+							</div>
+							<span class="text-sm text-gray-500 dark:text-gray-500">Summer 2024</span>
+						</div>
+					</div>
+					<!-- Add more education entries here -->
+					<div class="border-l-2 border-blue-200 pl-4 dark:border-blue-800">
+						<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+							<div>
+								<h4 class="font-medium text-gray-900 dark:text-gray-100">
+									MSc in Applied Mathematics
+								</h4>
+								<p class="text-sm text-gray-600 dark:text-gray-400">ETH Zürich</p>
+							</div>
+							<span class="text-sm text-gray-500 dark:text-gray-500">2023 - 2025</span>
+						</div>
+					</div>
+					<!-- Add more education entries here -->
+
+					<div class="border-l-2 border-blue-200 pl-4 dark:border-blue-800">
+						<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+							<div>
+								<h4 class="font-medium text-gray-900 dark:text-gray-100">BSc in Mathematics</h4>
+								<p class="text-sm text-gray-600 dark:text-gray-400">ETH Zürich</p>
+							</div>
+							<span class="text-sm text-gray-500 dark:text-gray-500">2020 - 2023</span>
+						</div>
+					</div>
+					<!-- Add more education entries here -->
+				</div>
+			</div>
+		</div>
+		<div class="mt-6">
+			<a
+				href="/cv.pdf"
+				download="Clemens_Thalhammer_CV.pdf"
+				class="text-sm text-gray-900 underline hover:text-gray-700 dark:text-gray-100 dark:hover:text-gray-300"
+			>
+				Download CV
+			</a>
+		</div>
+	</section>
 	{
+		pinnedResearch.length > 0 && (
+			<section class="mt-16">
+				<h2 class="title text-accent mb-6 text-xl">
+					<a href="/research/">Featured Research</a>
+				</h2>
+				<ul class="space-y-6" role="list">
+					{pinnedResearch.map((research) => (
+						<li class="border-l-4 border-blue-200 bg-gray-50 p-4 dark:border-blue-800 dark:bg-gray-900/50">
+							<h3 class="mb-2 text-base font-semibold">
+								<a href={`/research/${research.slug}/`} class="cactus-link">
+									{research.data.title}
+								</a>
+							</h3>
+							<p class="mb-2 text-sm text-gray-600 dark:text-gray-400">
+								{research.data.authors.join(", ")}
+							</p>
+							{research.data.venue && (
+								<p class="mb-3 text-sm text-gray-600 dark:text-gray-400">
+									<em>{research.data.venue}</em> ({research.data.year})
+								</p>
+							)}
+							<p class="text-sm text-gray-700 dark:text-gray-300">{research.data.description}</p>
+							<div class="mt-3 flex flex-wrap gap-2">
+								{research.data.tags?.map((tag) => (
+									<span class="rounded bg-gray-200 px-2 py-1 text-xs text-gray-600 dark:bg-gray-700 dark:text-gray-400">
+										{tag}
+									</span>
+								))}
+							</div>
+						</li>
+					))}
+				</ul>
+			</section>
+		)
+	}
+	{
+		pinnedTeaching.length > 0 && (
+			<section class="mt-16">
+				<h2 class="title text-accent mb-6 text-xl">
+					<a href="/teaching/">Recent Teaching</a>
+				</h2>
+				<ul class="space-y-6" role="list">
+					{pinnedTeaching.map((course) => (
+						<li class="border-l-4 border-green-200 bg-gray-50 p-4 dark:border-green-800 dark:bg-gray-900/50">
+							<h3 class="mb-2 text-base font-semibold">
+								<a href={`/teaching/${course.slug}/`} class="cactus-link">
+									{course.data.title}
+								</a>
+							</h3>
+							<div class="mb-2 flex flex-wrap gap-4 text-sm text-gray-600 dark:text-gray-400">
+								<span>{course.data.institution}</span>
+								<span>
+									{course.data.semester} {course.data.year}
+								</span>
+								<span>{course.data.role}</span>
+							</div>
+							{course.data.description && (
+								<p class="mb-3 text-sm text-gray-700 dark:text-gray-300">
+									{course.data.description}
+								</p>
+							)}
+							{course.data.topics && course.data.topics.length > 0 && (
+								<div class="flex flex-wrap gap-1">
+									{course.data.topics.slice(0, 4).map((topic) => (
+										<span class="rounded bg-green-100 px-2 py-1 text-xs text-green-800 dark:bg-green-900/30 dark:text-green-200">
+											{topic}
+										</span>
+									))}
+									{course.data.topics.length > 4 && (
+										<span class="text-xs text-gray-500 dark:text-gray-400">
+											+{course.data.topics.length - 4} more
+										</span>
+									)}
+								</div>
+							)}
+						</li>
+					))}
+				</ul>
+			</section>
+		)
+	}
+	<!-- {
 		pinnedPosts.length > 0 && (
 			<section class="mt-16">
 				<h2 class="title mb-6 text-xl">Pinned Posts</h2>
@@ -48,8 +223,8 @@ const latestNotes = allNotes
 				</ul>
 			</section>
 		)
-	}
-	<section class="mt-16">
+	} -->
+	<!-- <section class="mt-16">
 		<h2 class="title text-accent mb-6 text-xl"><a href="/posts/">Posts</a></h2>
 		<ul class="space-y-4" role="list">
 			{
@@ -60,8 +235,8 @@ const latestNotes = allNotes
 				))
 			}
 		</ul>
-	</section>
-	{
+	</section> -->
+	<!-- {
 		latestNotes.length > 0 && (
 			<section class="mt-16">
 				<h2 class="title text-accent mb-6 text-xl">
@@ -76,5 +251,5 @@ const latestNotes = allNotes
 				</ul>
 			</section>
 		)
-	}
+	} -->
 </PageLayout>

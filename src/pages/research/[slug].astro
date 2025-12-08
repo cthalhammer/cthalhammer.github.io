@@ -1,0 +1,139 @@
+---
+import type { GetStaticPaths } from "astro";
+import { getCollection, type CollectionEntry } from "astro:content";
+import PageLayout from "@/layouts/Base.astro";
+import FormattedDate from "@/components/FormattedDate.astro";
+
+export const getStaticPaths: GetStaticPaths = async () => {
+	const research = await getCollection("research");
+	return research.map((entry) => ({
+		params: { slug: entry.slug },
+		props: { entry },
+	}));
+};
+
+type Props = {
+	entry: CollectionEntry<"research">;
+};
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+const meta = {
+	description: entry.data.description,
+	title: entry.data.title,
+};
+---
+
+<PageLayout meta={meta}>
+	<div class="w-full">
+		<button
+			aria-label="Back to research page"
+			class="group mb-8 flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 transition-all hover:bg-gray-200 focus:ring-2 focus:ring-blue-500 focus:outline-none dark:bg-gray-800 dark:hover:bg-gray-700"
+			onclick="history.back()"
+		>
+			<svg
+				aria-hidden="true"
+				class="h-5 w-5 text-gray-600 transition-transform group-hover:-translate-x-1 dark:text-gray-400"
+				fill="none"
+				stroke="currentColor"
+				viewBox="0 0 24 24"
+				xmlns="http://www.w3.org/2000/svg"
+			>
+				<path
+					d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					stroke-width="2"></path>
+			</svg>
+		</button>
+
+		<article class="prose prose-cactus max-w-none">
+			<header class="mb-8">
+				<h1 class="title mb-4">{entry.data.title}</h1>
+
+				<div class="mb-4 text-sm text-gray-600 dark:text-gray-400">
+					<p class="mb-2">
+						<strong>Authors:</strong>
+						{entry.data.authors.join(", ")}
+					</p>
+					{
+						entry.data.venue && (
+							<p class="mb-2">
+								<strong>Venue:</strong> <em>{entry.data.venue}</em> ({entry.data.year})
+							</p>
+						)
+					}
+					{
+						entry.data.status && (
+							<p class="mb-2">
+								<strong>Status:</strong> {entry.data.status}
+							</p>
+						)
+					}
+					<p class="mb-2">
+						<strong>Published:</strong>
+						<FormattedDate date={entry.data.publishDate} />
+					</p>
+				</div>
+
+				<!-- Links Section -->
+				<div class="mb-6 flex flex-wrap gap-3">
+					{
+						entry.data.doi && (
+							<a
+								href={`https://doi.org/${entry.data.doi}`}
+								class="cactus-link text-sm"
+								target="_blank"
+								rel="noopener"
+							>
+								DOI
+							</a>
+						)
+					}
+					{
+						entry.data.arxiv && (
+							<a
+								href={`https://arxiv.org/abs/${entry.data.arxiv}`}
+								class="cactus-link text-sm"
+								target="_blank"
+								rel="noopener"
+							>
+								arXiv
+							</a>
+						)
+					}
+					{
+						entry.data.pdf && (
+							<a href={entry.data.pdf} class="cactus-link text-sm" target="_blank" rel="noopener">
+								PDF
+							</a>
+						)
+					}
+					{
+						entry.data.code && (
+							<a href={entry.data.code} class="cactus-link text-sm" target="_blank" rel="noopener">
+								Code
+							</a>
+						)
+					}
+				</div>
+
+				<!-- Tags -->
+				{
+					entry.data.tags && entry.data.tags.length > 0 && (
+						<div class="flex flex-wrap gap-2">
+							{entry.data.tags.map((tag) => (
+								<span class="rounded bg-gray-100 px-2 py-1 text-xs text-gray-600 dark:bg-gray-800 dark:text-gray-400">
+									{tag}
+								</span>
+							))}
+						</div>
+					)
+				}
+			</header>
+
+			<Content />
+		</article>
+	</div>
+</PageLayout>

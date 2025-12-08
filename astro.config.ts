@@ -21,7 +21,8 @@ import { expressiveCodeOptions, siteConfig } from "./src/site.config";
 
 // https://astro.build/config
 export default defineConfig({
-	site: siteConfig.url,
+	site: "https://cthalhammer.github.io",
+	base: "/",
 	image: {
 		domains: ["webmention.io"],
 	},

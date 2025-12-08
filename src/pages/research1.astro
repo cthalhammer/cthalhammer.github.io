@@ -1,0 +1,142 @@
+---
+import { getCollection } from "astro:content";
+import PageLayout from "@/layouts/Base.astro";
+
+const meta = {
+	description: "My research publications and preprints",
+	title: "Research",
+};
+
+// Get all research posts
+const allResearch = await getCollection("research", ({ data }) => {
+	return data.draft !== true;
+});
+
+const sortedResearch = allResearch.sort((a, b) => {
+	// First sort by pinned status (pinned items first)
+	if (a.data.pinned !== b.data.pinned) {
+		return a.data.pinned ? -1 : 1;
+	}
+	// Then sort by year (newest first)
+	return b.data.year - a.data.year;
+});
+
+// Separate by type
+const publications = sortedResearch.filter((item) => item.data.type === "publication");
+const preprints = sortedResearch.filter((item) => item.data.type === "preprint");
+const theses = sortedResearch.filter((item) => item.data.type === "thesis");
+---
+
+<PageLayout meta={meta}>
+	<h1 class="title mb-12">Research</h1>
+	<div class="prose prose-cactus max-w-none">
+		<!-- Publications Section -->
+		<h2 id="publications">#Publications</h2>
+		<div class="mb-8">
+			{
+				publications.map((item, index) => (
+					<div class="mb-8">
+						<div class="flex items-start gap-4">
+							<span class="mt-1 text-sm font-bold">{publications.length - index}.</span>
+							<div class="flex-1">
+								<h3 class="mb-2 text-base font-normal">
+									<a href={`/research/${item.slug}/`} class="cactus-link">
+										{item.data.title}
+									</a>
+								</h3>
+								<p class="mb-1 text-sm text-gray-600 dark:text-gray-400">
+									{item.data.authors.join(", ")}
+								</p>
+								<p class="mb-3 text-sm text-gray-600 dark:text-gray-400">
+									<em>{item.data.venue}</em> ({item.data.year})
+								</p>
+								<blockquote class="mb-3 border-l-4 border-gray-300 pl-4 text-sm italic">
+									{item.data.description}
+								</blockquote>
+								<div class="flex flex-wrap gap-2 text-xs">
+									{item.data.tags?.map((tag) => (
+										<span class="rounded bg-gray-100 px-2 py-1 text-gray-600 dark:bg-gray-800 dark:text-gray-400">
+											{tag}
+										</span>
+									))}
+								</div>
+							</div>
+						</div>
+					</div>
+				))
+			}
+		</div>
+
+		<!-- Preprints Section -->
+		<h2 id="preprints">#Preprints</h2>
+		<div class="mb-8">
+			{
+				preprints.map((item, index) => (
+					<div class="mb-8">
+						<div class="flex items-start gap-4">
+							<span class="mt-1 text-sm font-bold">{preprints.length - index}.</span>
+							<div class="flex-1">
+								<h3 class="mb-2 text-base font-normal">
+									<a href={`/research/${item.slug}/`} class="cactus-link">
+										{item.data.title}
+									</a>
+								</h3>
+								<p class="mb-1 text-sm text-gray-600 dark:text-gray-400">
+									{item.data.authors.join(", ")}
+								</p>
+								<p class="mb-3 text-sm text-gray-600 dark:text-gray-400">
+									<em>preprint</em> ({item.data.year})
+								</p>
+								<blockquote class="mb-3 border-l-4 border-gray-300 pl-4 text-sm italic">
+									{item.data.description}
+								</blockquote>
+								<div class="flex flex-wrap gap-2 text-xs">
+									{item.data.tags?.map((tag) => (
+										<span class="rounded bg-gray-100 px-2 py-1 text-gray-600 dark:bg-gray-800 dark:text-gray-400">
+											{tag}
+										</span>
+									))}
+								</div>
+							</div>
+						</div>
+					</div>
+				))
+			}
+		</div>
+
+		<!-- Theses Section -->
+		{
+			theses.length > 0 && (
+				<>
+					<h2 id="theses">#Theses</h2>
+					<div class="mb-8">
+						{theses.map((item) => (
+							<div class="mb-6">
+								<h3 class="mb-2 text-base font-normal">
+									<a href={`/research/${item.slug}/`} class="cactus-link">
+										{item.data.title}
+									</a>
+								</h3>
+								<blockquote class="mb-3 border-l-4 border-gray-300 pl-4 text-sm italic">
+									{item.data.description}
+								</blockquote>
+								<div class="flex flex-wrap gap-2 text-xs">
+									{item.data.tags?.map((tag) => (
+										<span class="rounded bg-gray-100 px-2 py-1 text-gray-600 dark:bg-gray-800 dark:text-gray-400">
+											{tag}
+										</span>
+									))}
+								</div>
+							</div>
+						))}
+					</div>
+				</>
+			)
+		}
+
+		<!-- Download link for publication list -->
+		<div class="mt-8">
+			<a href="#" class="cactus-link">Download publication list</a>
+		</div>
+	</div>
+</PageLayout>
