@@ -48,9 +48,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 <meta content={siteConfig.title} property="og:site_name" />
 <meta content={siteConfig.ogLocale} property="og:locale" />
 {/* Social card disabled */}
-{/* <meta content={socialImageURL} property="og:image" />
+{
+	/* <meta content={socialImageURL} property="og:image" />
 <meta content="1200" property="og:image:width" />
-<meta content="630" property="og:image:height" /> */}
+<meta content="630" property="og:image:height" /> */
+}
 {
 	articleDate && (
 		<>

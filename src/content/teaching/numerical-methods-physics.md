@@ -2,7 +2,7 @@
 title: "Numerical Methods for Physics and Electrical Engineering"
 institution: "ETH Zürich"
 semester: "Spring"
-year: 2024
+year: 2025
 role: "Head Teaching Assistant"
 topics: ["Numerical Methods","Scientific Computing",  "Ordinary Differential Equations"]
 materials: 
