@@ -1,7 +1,6 @@
 ---
 import { getCollection } from "astro:content";
 import PageLayout from "@/layouts/Base.astro";
-import { collectionDateSort } from "@/utils/date";
 
 const allTeaching = await getCollection("teaching");
 const teachingByDate = allTeaching.sort((a, b) => {
