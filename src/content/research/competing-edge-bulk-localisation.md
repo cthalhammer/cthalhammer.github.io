@@ -1,5 +1,5 @@
 ---
-title: "Competing edge and bulk localisation in non-reciprocal disordered systems"
+title: "Edge-Bulk Competition in Non-Reciprocal Disorder"
 authors: ["Habib Ammari", "Silvio Barandun", "Clemens Thalhammer", "Alexander Uhlmann"]
 year: 2025
 venue: "arXiv preprint"
