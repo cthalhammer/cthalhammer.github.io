@@ -10,7 +10,7 @@ arxiv: "2507.02096"
 url: "https://arxiv.org/abs/2507.02096"
 pinned: false
 draft: false
-publishDate: "2025-01-05"
+publishDate: "2025-07-02"
 description: "We investigate the interplay between edge and bulk localisation phenomena in non-reciprocal disordered systems, revealing competing mechanisms that determine the nature of wave propagation in these complex media."
 ---
 # Abstract 

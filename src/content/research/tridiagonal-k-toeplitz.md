@@ -7,7 +7,7 @@ venue: "Journal of Physics A: Mathematical and Theoretical"
 year: 2025
 type: "publication"
 status: "Published"
-publishDate: "2025-01-01"
+publishDate: "2025-05-15"
 pinned: true
 tags: ["non-hermitian physics", "spectral theory", "topological physics", ]
 doi: "10.1088/1751-8121/add5ab"
@@ -25,46 +25,6 @@ general one-dimensional polymer systems of subwavelength resonators with
 imaginary gauge potentials. We also numerically verify our theory for these
 polymer systems.
 
-<!-- ## Main Contributions
-
-1. **Spectral characterization**: Complete analysis of eigenvalues and eigenvectors for tridiagonal k-Toeplitz matrices
-2. **Pseudo-spectral analysis**: Detailed study of the pseudo-spectrum and its topological features
-3. **Skin effect origin**: Mathematical explanation of the topological mechanisms behind the non-Hermitian skin effect
-4. **Physical implications**: Connection to real-world systems in condensed matter and metamaterials
-
-## Technical Approach
-
-Our mathematical framework employs:
-- **Complex analysis** for spectral curve characterization
-- **Topological methods** for understanding spectral band structure
-- **Asymptotic analysis** for large matrix behavior
-- **Functional analysis** for operator-theoretic perspectives
-
-## Physical Context
-
-The non-Hermitian skin effect manifests in:
-- **Metamaterials**: Engineered structures with exotic optical properties
-- **Quantum systems**: Non-Hermitian Hamiltonians in open quantum systems
-- **Photonic crystals**: Wave propagation in structured media
-- **Electronic systems**: Transport in dissipative quantum materials
-
-Our mathematical results provide the theoretical foundation for understanding these phenomena.
-
-## Applications
-
-This work has applications in:
-- **Metamaterial design**: Predicting and controlling wave localization
-- **Quantum engineering**: Designing non-Hermitian quantum devices
-- **Photonics**: Understanding light propagation in complex media
-- **Mathematical physics**: Advancing non-Hermitian operator theory
-
-## Impact
-
-The research contributes to:
-- **Pure mathematics**: New results in spectral theory of structured matrices
-- **Applied mathematics**: Tools for analyzing non-Hermitian systems
-- **Physics**: Fundamental understanding of topological phenomena
-- **Engineering**: Design principles for novel materials and devices -->
 
 ## Bibtex
 
