@@ -17,8 +17,10 @@ const sortedResearch = allResearch.sort((a, b) => {
 	if (a.data.pinned !== b.data.pinned) {
 		return a.data.pinned ? -1 : 1;
 	}
-	// Then sort by year (newest first)
-	return b.data.year - a.data.year;
+	// Then sort by publishDate (newest first), fallback to year if no publishDate
+	const dateA = a.data.publishDate ? new Date(a.data.publishDate) : new Date(a.data.year, 0);
+	const dateB = b.data.publishDate ? new Date(b.data.publishDate) : new Date(b.data.year, 0);
+	return dateB.getTime() - dateA.getTime();
 });
 
 // Separate by type
