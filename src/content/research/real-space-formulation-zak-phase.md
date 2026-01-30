@@ -9,7 +9,7 @@ type: "preprint"
 status: "Submitted"
 publishDate: "2026-01-23"
 pinned: false
-tags: ["Zak phase", "Weyl m-functions", "topological phases", "real-space methods", "periodic systems", "mathematical physics"]
+tags: ["Zak phase", "Weyl m-functions", "topological phases"]
 arxiv: "2601.14816"
 draft: false
 ---
