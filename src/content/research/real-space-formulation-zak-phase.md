@@ -1,5 +1,5 @@
 ---
-title: "A Real-Space Formulation of the Zak Phase via Weyl m-Functions"
+title: "Real-Space Formulation of the Zak Phase via Weyl m-Functions"
 fullTitle: "A Real-Space Formulation of the Zak Phase via Weyl m-Functions"
 description: "We develop a real-space approach to computing the Zak phase using Weyl m-functions, providing new insights into the topological characterization of one-dimensional periodic systems."
 authors: ["Habib Ammari", "Clemens Thalhammer"]
@@ -8,7 +8,7 @@ year: 2026
 type: "preprint"
 status: "Submitted"
 publishDate: "2026-01-23"
-pinned: false
+pinned: true
 tags: ["Zak phase", "Weyl m-functions", "topological phases"]
 arxiv: "2601.14816"
 draft: false
