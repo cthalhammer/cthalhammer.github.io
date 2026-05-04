@@ -3,15 +3,14 @@ title: "Real-Space Formulation of the Zak Phase via Weyl m-Functions"
 fullTitle: "A Real-Space Formulation of the Zak Phase via Weyl m-Functions"
 description: "We develop a real-space approach to computing the Zak phase using Weyl m-functions, providing new insights into the topological characterization of one-dimensional periodic systems."
 authors: ["Habib Ammari", "Clemens Thalhammer"]
-venue: "arXiv preprint"
+venue: "Journal of Physics A: Mathematical and Theoretical"
 year: 2026
-type: "preprint"
-status: "Submitted"
-publishDate: "2026-01-23"
+type: "publication"
+status: "accepted"
+publishDate: "2026-04-29"
 pinned: true
 tags: ["Zak phase", "Weyl m-functions", "topological phases"]
-arxiv: "2601.14816"
-draft: false
+doi: "10.1088/1751-8121/ae6694"
 ---
 
 ## Abstract
@@ -25,17 +24,21 @@ phase for periodic Jacobi operators with inversion symmetric fundamental cells.
 ## Bibtex
 
 ```bibtex
-@misc{ammari2026realspaceformulationzakphase,
-  title={A Real-Space Formulation of the Zak Phase via Weyl m-Functions}, 
-  author={Habib Ammari and Clemens Thalhammer},
-  year={2026},
-  eprint={2601.14816},
-  archivePrefix={arXiv},
-  primaryClass={math-ph},
-  url={https://arxiv.org/abs/2601.14816}
+@article{Ammari2026,
+  title = {A real-space formulation of the Zak phase via Weyl
+                    <i>m</i>
+                    -functions},
+  ISSN = {1751-8121},
+  url = {http://dx.doi.org/10.1088/1751-8121/ae6694},
+  DOI = {10.1088/1751-8121/ae6694},
+  journal = {Journal of Physics A: Mathematical and Theoretical},
+  publisher = {IOP Publishing},
+  author = {Ammari,  Habib and Thalhammer,  Clemens},
+  year = {2026},
+  month = Apr 
 }
 ```
 
 ## Links
 
-- [arXiv Preprint](https://arxiv.org/abs/2601.14816)
+- [Journal Article](https://doi.org/10.1088/1751-8121/ae6694)

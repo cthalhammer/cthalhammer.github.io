@@ -9,7 +9,7 @@ type: "preprint"
 status: "Submitted"
 publishDate: "2025-09-26"
 pinned: false
-tags: ["aperiodic systems", "metamaterials", "subwavelength resonators", "edge modes", "bandgap engineering", "uniform hyperbolicity"]
+tags: ["aperiodic systems", "metamaterials", "dynamical systems"]
 arxiv: "2509.22417"
 draft: false
 ---

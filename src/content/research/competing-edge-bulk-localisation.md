@@ -1,14 +1,14 @@
 ---
 title: "Edge-Bulk Competition in Non-Reciprocal Disorder"
-fullTitle: "Competing edge and bulk localisation in non-reciprocal disordered systems"
+fullTitle: "Competing Edge and Bulk Localization in Nonreciprocal Disordered Systems"
 authors: ["Habib Ammari", "Silvio Barandun", "Clemens Thalhammer", "Alexander Uhlmann"]
-year: 2025
-venue: "arXiv preprint"
-type: "preprint"
+year: 2026
+venue: "Multiscale Modeling & Simulation"
+type: "publication"
 tags: ["mathematical physics", "disorder", "localisation", "non-reciprocal systems", "edge states"]
 arxiv: "2507.02096"
-url: "https://arxiv.org/abs/2507.02096"
-pinned: false
+url: "https://epubs.siam.org/doi/full/10.1137/25M1790762"
+pinned: true
 draft: false
 publishDate: "2025-07-02"
 description: "We investigate the interplay between edge and bulk localisation phenomena in non-reciprocal disordered systems, revealing competing mechanisms that determine the nature of wave propagation in these complex media."
@@ -28,19 +28,20 @@ the non-Hermit
 ## Bibtex
 
 ```bibtex
-@misc{ammari2025competingedgebulklocalisation,
-      title={Competing edge and bulk localisation in non-reciprocal disordered systems}, 
-      author={Habib Ammari and Silvio Barandun and Clemens Thalhammer and Alexander Uhlmann},
-      year={2025},
-      eprint={2507.02096},
-      archivePrefix={arXiv},
-      primaryClass={math-ph},
-      url={https://arxiv.org/abs/2507.02096}, 
+@article{ammari2026competing,
+  title={Competing Edge and Bulk Localization in Nonreciprocal Disordered Systems},
+  author={Ammari, Habib and Barandun, Silvio and Thalhammer, Clemens and Uhlmann, Alexander},
+  journal={Multiscale Modeling \& Simulation},
+  volume={24},
+  number={2},
+  pages={456--473},
+  year={2026},
+  publisher={SIAM}
 }
 ```
 
 
 ## Links
 
-- [arXiv Preprint](https://arxiv.org/abs/2509.22417)
+- [Journal Article](https://epubs.siam.org/doi/full/10.1137/25M1790762)
 

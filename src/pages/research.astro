@@ -39,7 +39,7 @@ const theses = sortedResearch.filter((item) => item.data.type === "thesis");
 				publications.map((item, index) => (
 					<div class="mb-8">
 						<div class="flex items-start gap-4">
-							<span class="mt-1 text-sm font-bold">{publications.length - index}.</span>
+							<span class="mt-1 text-sm font-bold">{index + 1}.</span>
 							<div class="flex-1">
 								<h3 class="mb-2 text-base font-normal">
 									<a href={`/research/${item.slug}/`} class="cactus-link">
@@ -76,7 +76,7 @@ const theses = sortedResearch.filter((item) => item.data.type === "thesis");
 				preprints.map((item, index) => (
 					<div class="mb-8">
 						<div class="flex items-start gap-4">
-							<span class="mt-1 text-sm font-bold">{preprints.length - index}.</span>
+							<span class="mt-1 text-sm font-bold">{index + 1}.</span>
 							<div class="flex-1">
 								<h3 class="mb-2 text-base font-normal">
 									<a href={`/research/${item.slug}/`} class="cactus-link">

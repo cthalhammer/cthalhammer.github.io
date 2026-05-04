@@ -1,6 +1,6 @@
 ---
 title: "Mathematical Origin of the Non-Hermitian Skin Effect"
-fullTitle: "Spectral and pseudo-spectral analysis of tridiagonal k-Toeplitz matrices: mathematical origins of the non-Hermitian skin effect"
+fullTitle: "Spectra and Pseudo-spectra of Tridiagonal k-Toeplitz Matrices and the Topological Origin of the Non-Hermitian Skin Effect"
 description: "We investigate the spectral properties of tridiagonal k-Toeplitz matrices and reveal the topological origins of the non-Hermitian skin effect, providing new insights into non-Hermitian quantum mechanics and condensed matter physics."
 authors: ["Habib Ammari", "Silvio Barandun", "Yannick De Bruijn", "Ping Liu", "Clemens Thalhammer"]
 venue: "Journal of Physics A: Mathematical and Theoretical"
@@ -8,7 +8,7 @@ year: 2025
 type: "publication"
 status: "Published"
 publishDate: "2025-05-15"
-pinned: true
+pinned: false
 tags: ["non-hermitian physics", "spectral theory", "topological physics", ]
 doi: "10.1088/1751-8121/add5ab"
 draft: false
