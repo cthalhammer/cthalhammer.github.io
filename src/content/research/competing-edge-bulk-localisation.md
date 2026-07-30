@@ -8,7 +8,7 @@ type: "publication"
 tags: ["mathematical physics", "disorder", "localisation", "non-reciprocal systems", "edge states"]
 arxiv: "2507.02096"
 url: "https://epubs.siam.org/doi/full/10.1137/25M1790762"
-pinned: true
+pinned: false
 draft: false
 publishDate: "2025-07-02"
 description: "We investigate the interplay between edge and bulk localisation phenomena in non-reciprocal disordered systems, revealing competing mechanisms that determine the nature of wave propagation in these complex media."

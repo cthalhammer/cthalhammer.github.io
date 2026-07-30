@@ -1,6 +1,6 @@
 ---
 title: "Computing spectra of quasiperiodic operators"
-fullTitle: "Convergence of supercell and superspace methods for computing spectra of quasiperiodic operators"
+fullTitle: "Convergence of Supercell and Superspace Methods for Computing Spectra of Quasiperiodic Operators"
 description: "We analyze the convergence properties of supercell and superspace computational methods for determining the spectral properties of quasiperiodic operators, providing rigorous mathematical foundations for numerical approaches in quasicrystal physics."
 authors: ["Bryn Davies", "Clemens Thalhammer"]
 venue: "Proceedings of the Royal Society A"
