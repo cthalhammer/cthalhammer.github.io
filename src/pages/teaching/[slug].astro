@@ -2,6 +2,8 @@
 import { type CollectionEntry, getCollection } from "astro:content";
 import PageLayout from "@/layouts/Base.astro";
 import FormattedDate from "@/components/FormattedDate.astro";
+import fs from "node:fs";
+import path from "node:path";
 
 export async function getStaticPaths() {
 	const teaching = await getCollection("teaching");
@@ -17,6 +19,22 @@ interface Props {
 
 const { course } = Astro.props;
 const { Content } = await course.render();
+
+// Materials starting with "/" are files in public/ and are shown as downloads
+function formatSize(bytes: number) {
+	if (bytes < 1024 * 1024) return `${Math.max(1, Math.round(bytes / 1024))} KB`;
+	return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
+}
+
+const downloads = course.data.materials
+	.filter((material) => material.url.startsWith("/"))
+	.map((material) => {
+		const filePath = path.join(process.cwd(), "public", decodeURI(material.url));
+		const size = fs.existsSync(filePath) ? formatSize(fs.statSync(filePath).size) : undefined;
+		const type = path.extname(material.url).slice(1).toUpperCase();
+		return { ...material, size, type };
+	});
+const links = course.data.materials.filter((material) => !material.url.startsWith("/"));
 ---
 
 <PageLayout meta={{ title: course.data.title, description: course.data.description || "" }}>
@@ -81,10 +99,43 @@ const { Content } = await course.render();
 			}
 
 			{
-				(course.data.polyboxLink ||
-					(course.data.materials && course.data.materials.length > 0)) && (
+				(course.data.polyboxLink || course.data.materials.length > 0) && (
 					<div class="mb-8">
 						<h2 class="mb-3 text-base font-semibold">Course Materials:</h2>
+						{downloads.length > 0 && (
+							<ul class="mb-4 divide-y divide-gray-200 border-y border-gray-200 dark:divide-gray-700 dark:border-gray-700">
+								{downloads.map((file) => (
+									<li>
+										<a
+											href={file.url}
+											download
+											class="group flex items-center gap-3 px-1 py-2.5 text-sm hover:bg-gray-50 dark:hover:bg-gray-800/50"
+										>
+											<svg class="h-4 w-4 shrink-0 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+												<path
+													stroke-linecap="round"
+													stroke-linejoin="round"
+													stroke-width="2"
+													d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+												/>
+											</svg>
+											<span class="flex-1 text-gray-900 group-hover:underline dark:text-gray-100">{file.name}</span>
+											<span class="text-xs whitespace-nowrap text-gray-500 dark:text-gray-400">
+												{[file.type, file.size].filter(Boolean).join(" · ")}
+											</span>
+											<svg class="h-4 w-4 shrink-0 text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+												<path
+													stroke-linecap="round"
+													stroke-linejoin="round"
+													stroke-width="2"
+													d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+												/>
+											</svg>
+										</a>
+									</li>
+								))}
+							</ul>
+						)}
 						<div class="flex flex-wrap gap-4">
 							{course.data.polyboxLink && (
 								<a
@@ -104,9 +155,7 @@ const { Content } = await course.render();
 									Polybox Folder
 								</a>
 							)}
-							{course.data.materials &&
-								course.data.materials.length > 0 &&
-								course.data.materials.map((material) => (
+							{links.map((material) => (
 									<a
 										href={material.url}
 										target="_blank"

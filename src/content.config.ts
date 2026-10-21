@@ -114,7 +114,8 @@ const teaching = defineCollection({
 		polyboxLink: z.string().url().optional(),
 		materials: z.array(z.object({
 			name: z.string(),
-			url: z.string().url()
+			// External URL, or a path to a file in public/ (e.g. "/teaching/photonics-2026/sheet1.pdf")
+			url: z.string().url().or(z.string().startsWith("/"))
 		})).default([]),
 		draft: z.boolean().default(false),
 		pinned: z.boolean().default(false),

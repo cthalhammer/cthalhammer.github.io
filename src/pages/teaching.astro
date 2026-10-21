@@ -4,11 +4,12 @@ import PageLayout from "@/layouts/Base.astro";
 
 const allTeaching = await getCollection("teaching");
 const teachingByDate = allTeaching.sort((a, b) => {
-	// Sort by semester/year (most recent first)
-	if (a.data.semester !== b.data.semester) {
-		return b.data.semester.localeCompare(a.data.semester);
+	// Sort by year first, then by semester priority (most recent first)
+	if (a.data.year !== b.data.year) {
+		return b.data.year - a.data.year;
 	}
-	return b.data.year - a.data.year;
+	const semesterPriority: Record<string, number> = { Fall: 3, Spring: 2, Summer: 1 };
+	return (semesterPriority[b.data.semester] || 0) - (semesterPriority[a.data.semester] || 0);
 });
 
 // Group by academic year

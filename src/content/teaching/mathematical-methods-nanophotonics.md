@@ -1,7 +1,7 @@
 ---
 title: "Mathematical and Computational Methods in Photonics"
 institution: "ETH Zürich"
-semester: "Spring"
+semester: "Fall"
 year: 2025
 role: "Head Teaching Assistant"
 topics: [ "Photonic Crystals", "Asymptotic Analysis", "Layer Potential Techniques", ]
@@ -11,7 +11,7 @@ materials:
 draft: false
 pinned: true
 tags: ["nanophotonics", "applied mathematics", "electromagnetic waves", "metamaterials", "graduate"]
-publishDate: "2024-02-01"
+publishDate: "2025-09-15"
 ---
 
 ## Course Overview
