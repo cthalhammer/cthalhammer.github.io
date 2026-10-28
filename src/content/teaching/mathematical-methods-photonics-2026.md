@@ -10,6 +10,8 @@ materials:
     url: "https://www.vvz.ethz.ch/Vorlesungsverzeichnis/lerneinheit.view?lerneinheitId=203281&semkez=2026W&ansicht=LEHRVERANSTALTUNGEN&lang=en"
   - name: "BEM&OperatorApproximations"
     url: "/teaching/photonics-2026/BEM-OperatorApproximations.pdf"
+  - name: "Discretisation"
+    url: "/teaching/photonics-2026/Discretisation.pdf"
 draft: false
 pinned: true
 tags: ["nanophotonics", "applied mathematics", "electromagnetic waves", "metamaterials", "graduate"]
