@@ -12,6 +12,8 @@ materials:
     url: "/teaching/photonics-2026/BEM-OperatorApproximations.pdf"
   - name: "Discretisation"
     url: "/teaching/photonics-2026/Discretisation.pdf"
+  - name: "Eigenvalues Of The Laplacian"
+    url: "/teaching/photonics-2026/EigenvaluesOfTheLaplacian.pdf"
 draft: false
 pinned: true
 tags: ["nanophotonics", "applied mathematics", "electromagnetic waves", "metamaterials", "graduate"]
