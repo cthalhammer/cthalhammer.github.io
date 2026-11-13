@@ -1,5 +1,5 @@
 ---
-title: "Off-diagonal decay of capacitance matrices"
+title: "Capacitance matrix decay via Brownian motion"
 fullTitle: "Off-diagonal decay of capacitance matrices via Brownian motion"
 description: "We establish upper and lower bounds for the off-diagonal entries of capacitance matrices of infinite, non-periodic systems of spherical resonators in chain, screen and crystal geometries, using the connection between the Dirichlet problem and Brownian motion."
 authors: ["Habib Ammari", "Clemens Thalhammer"]
