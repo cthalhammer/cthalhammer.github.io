@@ -3,10 +3,10 @@ title: "Nonlinear Capacitance Matrix Formulations"
 fullTitle: "Perturbative Approach to Nonlinear Capacitance Matrix Formulations"
 description: "We develop a perturbative theory for nonlinear Helmholtz systems on high-contrast inclusions, establishing a rigorous two-way correspondence between continuous subwavelength solitons and a finite discrete nonlinear capacitance system."
 authors: ["Habib Ammari", "Clemens Thalhammer"]
-venue: "arXiv preprint"
+venue: "Journal of Nonlinear Science"
 year: 2026
-type: "preprint"
-status: "Submitted"
+type: "publication"
+status: "Accepted"
 publishDate: "2026-06-18"
 pinned: false
 tags: ["nonlinear waves", "subwavelength resonators", "capacitance matrix", "solitons"]
@@ -25,7 +25,8 @@ We study a nonlinear Helmholtz system with cubic nonlinearity on high-contrast i
 @article{ammari2026perturbative,
   title={Perturbative Approach to Nonlinear Capacitance Matrix Formulations},
   author={Ammari, Habib and Thalhammer, Clemens},
-  journal={arXiv preprint arXiv:2606.20821},
+  journal={Journal of Nonlinear Science},
+  note={Accepted; arXiv:2606.20821},
   year={2026}
 }
 ```

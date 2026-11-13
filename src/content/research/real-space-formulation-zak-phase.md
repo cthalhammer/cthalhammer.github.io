@@ -6,9 +6,9 @@ authors: ["Habib Ammari", "Clemens Thalhammer"]
 venue: "Journal of Physics A: Mathematical and Theoretical"
 year: 2026
 type: "publication"
-status: "accepted"
+status: "Published"
 publishDate: "2026-04-29"
-pinned: true
+pinned: false
 tags: ["Zak phase", "Weyl m-functions", "topological phases"]
 doi: "10.1088/1751-8121/ae6694"
 ---

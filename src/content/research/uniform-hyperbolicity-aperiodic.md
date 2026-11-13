@@ -3,10 +3,10 @@ title: "Uniform Hyperbolicity, Bandgaps and Edge Modes"
 fullTitle: "Uniform Hyperbolicity, Bandgaps and Edge Modes in Aperiodic Systems of Subwavelength Resonators"
 description: "We investigate the spectral properties of aperiodic systems of subwavelength resonators, establishing conditions for uniform hyperbolicity and analyzing the emergence of bandgaps and edge modes in these complex metamaterial structures."
 authors: ["Habib Ammari", "Clemens Thalhammer", "Alexander Uhlmann"]
-venue: "arXiv preprint"
+venue: "Communications of the American Mathematical Society"
 year: 2025
-type: "preprint"
-status: "Submitted"
+type: "publication"
+status: "Accepted"
 publishDate: "2025-09-26"
 pinned: false
 tags: ["aperiodic systems", "metamaterials", "dynamical systems"]
@@ -35,7 +35,8 @@ their constituent blocks.
 @article{ammari2025uniform,
   title={Uniform Hyperbolicity, Bandgaps and Edge Modes in Aperiodic Systems of Subwavelength Resonators},
   author={Ammari, Habib and Thalhammer, Clemens and Uhlmann, Alexander},
-  journal={arXiv preprint arXiv:2509.22417},
+  journal={Communications of the American Mathematical Society},
+  note={Accepted; arXiv:2509.22417},
   year={2025}
 }
 ```
