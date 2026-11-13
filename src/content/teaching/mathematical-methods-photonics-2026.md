@@ -14,6 +14,10 @@ materials:
     url: "/teaching/photonics-2026/Discretisation.pdf"
   - name: "Eigenvalues Of The Laplacian"
     url: "/teaching/photonics-2026/EigenvaluesOfTheLaplacian.pdf"
+  - name: "Floquet-Bloch"
+    url: "/teaching/photonics-2026/Floquet-Bloch.pdf"
+  - name: "Capacitance 1D"
+    url: "/teaching/photonics-2026/Capacitance1D.pdf"
 draft: false
 pinned: true
 tags: ["nanophotonics", "applied mathematics", "electromagnetic waves", "metamaterials", "graduate"]
